@@ -1,456 +1,206 @@
+import { ProjectVisual, SiteFooter, SiteHeader } from "./site-components";
+import {
+  experienceGroups,
+  projects,
+  proofPoints,
+  selectedCredentials,
+  technologies,
+} from "./site-data";
+
 const capabilities = [
-  "ASP.NET Core",
-  "C#",
-  "SQL Server",
-  "Entity Framework Core",
-  "Secure REST APIs",
-  "Capacitor",
-];
-
-const metrics = [
-  ["23+", "API endpoints in one production-style system"],
-  ["22", "automated tests across unit and integration layers"],
-  ["1 yr", "building a municipal system for real internal use"],
-  ["4", "delivery domains: backend, web, mobile, and data"],
-];
-
-const experience = [
-  {
-    period: "JUN 2026 — PRESENT",
-    role: "Mobile & Full-Stack Developer",
-    company: "Immesense",
-    place: "Ramallah",
-    detail:
-      "Building cross-platform product experiences and connecting mobile interfaces to reliable backend services.",
-  },
-  {
-    period: "JUL 2026 — PRESENT",
-    role: "Backend Developer Intern",
-    company: "BinX Tech",
-    place: "Palestine",
-    detail:
-      "Engineering secure ASP.NET Core APIs with layered architecture, authentication, validation, logging, and automated tests.",
-  },
-  {
-    period: "JUN 2026 — PRESENT",
-    role: "Technical Team Co-Leader",
-    company: "Bin X Student Club",
-    place: "PTUK",
-    detail:
-      "Supporting technical direction, team collaboration, and practical learning activities for student developers.",
-  },
-  {
-    period: "AUG 2025 — AUG 2026",
-    role: "Web Developer — Backend Focus",
-    company: "Tulkarm Municipality",
-    place: "Tulkarm",
-    detail:
-      "Completed a one-year joint municipality-university program as part of the backend team, contributing to analysis and re-engineering of a legacy library system now used internally by municipal staff.",
-  },
-];
-
-const projects = [
-  {
-    index: "02",
-    title: "Library Management System",
-    summary:
-      "A municipal web platform re-engineered from a legacy system. As a backend team member, I contributed to analysis, relational data workflows, permissions, activity logging, Excel migration, testing, and technical documentation.",
-    tags: ["ASP.NET Core", ".NET 10", "EF Core", "SQL Server"],
-    href: "#experience",
-  },
-  {
-    index: "03",
-    title: "Student Management System API",
-    summary:
-      "A RESTful academic records system built with a clear three-tier architecture, ADO.NET, and SQL Server stored procedures.",
-    tags: ["ASP.NET Core", "ADO.NET", "SQL Server", "N-Tier"],
-    href: "https://github.com/mohammadimad/Student-Management-System---RESTful-API-with-N-Tier-Architecture",
-  },
-  {
-    index: "04",
-    title: "NZWalks API",
-    summary:
-      "A .NET API for managing regions and walking routes with Entity Framework Core, Identity, JWT authentication, and AutoMapper.",
-    tags: [".NET 9", "EF Core", "Identity", "JWT"],
-    href: "https://github.com/mohammadimad/NZWalksAPI",
-  },
-  {
-    index: "05",
-    title: "Interactive Web Experiences",
-    summary:
-      "Responsive frontend projects and 3D learning interfaces that translate technical ideas into clear, usable experiences.",
-    tags: ["JavaScript", "Responsive UI", "3D", "UX"],
-    href: "https://github.com/mohammadimad",
-  },
-];
-
-const skillGroups = [
   {
     number: "01",
-    title: "Backend",
-    skills: "C#, ASP.NET Core, REST APIs, JWT, RBAC, layered architecture",
+    title: "Backend systems",
+    text: "C#, ASP.NET Core, REST APIs, JWT, RBAC, layered architecture, and secure resource ownership.",
   },
   {
     number: "02",
-    title: "Data",
-    skills: "SQL Server, Entity Framework Core, ADO.NET, stored procedures, data modeling",
+    title: "Data workflows",
+    text: "SQL Server, Entity Framework Core, ADO.NET, stored procedures, relational modeling, and legacy data migration.",
   },
   {
     number: "03",
-    title: "Quality",
-    skills: "xUnit, Moq, integration testing, Swagger, validation, structured logging",
+    title: "Quality & security",
+    text: "xUnit, Moq, integration testing, validation, rate limiting, structured logging, and auditing.",
   },
   {
     number: "04",
-    title: "Product",
-    skills: "Capacitor, cross-platform mobile, HTML, CSS, JavaScript, responsive design",
-  },
-];
-
-const credentialGroups = [
-  {
-    title: "Professional & Current",
-    items: [
-      {
-        title: "One-Year Practical Software Development Experience",
-        issuer: "Tulkarm Municipality × PTUK",
-        date: "JUL 2026",
-        id: "Library Management System · Backend Team",
-        href: "/certificates/municipality-experience.pdf",
-      },
-      {
-        title: "Secure Your APIs: JWT, Roles & Policies in ASP.NET Core",
-        issuer: "Programming Advices",
-        date: "MAY 2026",
-        id: "cert_zxm67jtc",
-        href: "/certificates/secure-apis.pdf",
-      },
-      {
-        title: "Data Structures",
-        issuer: "Gammal Tech",
-        date: "JUN 2026",
-      },
-      {
-        title: "Frontend (Freelance)",
-        issuer: "Gammal Tech",
-        date: "MAY 2026",
-        href: "/certificates/frontend-freelance.pdf",
-      },
-      {
-        title: "Intrapreneurship",
-        issuer: "Gammal Tech",
-        date: "MAY 2026",
-        id: "6793699a7ea8d9dce1044f2c",
-      },
-      {
-        title: "OOP",
-        issuer: "Gammal Tech",
-        date: "MAY 2026",
-        id: "661c71102a4c4fbd4a0bf5c4",
-      },
-      {
-        title: "Entrepreneurship",
-        issuer: "Gammal Tech",
-        date: "MAY 2026",
-        id: "661c709c7bf2bfb7cc0580f6",
-      },
-      {
-        title: "Prompt Engineering",
-        issuer: "Gammal Tech",
-        date: "MAY 2026",
-        id: "67c64e487780d0b54a06968a",
-      },
-    ],
-  },
-  {
-    title: "Backend, Database & C#",
-    items: [
-      { title: "Introduction to RESTful API", issuer: "Programming Advices", date: "SEP 2025", href: "/certificates/introduction-restful-api.pdf" },
-      { title: "Data Structures Level 2 in C#", issuer: "Programming Advices", date: "SEP 2025" },
-      { title: "C# Programming Level 2", issuer: "Programming Advices", date: "SEP 2025", href: "/certificates/csharp-programming-level-2.pdf" },
-      { title: "Full Real Project", issuer: "Programming Advices", date: "JUL 2025", href: "/certificates/full-real-project.pdf" },
-      { title: "C# & Database Connectivity", issuer: "Programming Advices", date: "FEB 2024", href: "/certificates/csharp-database-connectivity.pdf" },
-      { title: "17 Database & SQL Projects - Practice", issuer: "Programming Advices", date: "OCT 2023", href: "/certificates/database-sql-projects.pdf" },
-      { title: "OOP as It Should Be in C#", issuer: "Programming Advices", date: "SEP 2023" },
-      { title: "Database Level 1 - SQL Concepts and Practice", issuer: "Programming Advices", date: "AUG 2023", href: "/certificates/database-level-1.pdf" },
-      { title: "C# Level 1", issuer: "Programming Advices", date: "JUL 2023" },
-    ],
-  },
-  {
-    title: "Frontend & Developer Tools",
-    items: [
-      { title: "CSS Foundations Deep Dive", issuer: "Programming Advices", date: "SEP 2025", href: "/certificates/css-foundations-deep-dive.pdf" },
-      { title: "HTML - Deep Dive", issuer: "Programming Advices", date: "JUL 2025", href: "/certificates/html-deep-dive.pdf" },
-      { title: "Build Responsive Website Using HTML5, CSS3, JavaScript and Bootstrap", issuer: "Udemy", date: "JAN 2021", href: "/certificates/responsive-web-html-css-js-bootstrap.pdf" },
-      { title: "Git from Basics to Advanced", issuer: "Udemy", date: "DEC 2020", href: "/certificates/git-basics-advanced.pdf" },
-    ],
-  },
-  {
-    title: "Computer Science Foundations",
-    items: [
-      { title: "Foundations - Level 2", issuer: "Programming Advices", date: "JUN 2025" },
-      { title: "Algorithms & Problem Solving - Level 5", issuer: "Programming Advices", date: "JUL 2023" },
-      { title: "Data Structures - Level 1", issuer: "Programming Advices", date: "JUL 2023" },
-      { title: "OOP as It Should Be - Applications", issuer: "Programming Advices", date: "JUN 2023" },
-      { title: "OOP as It Should Be - Concepts", issuer: "Programming Advices", date: "JUN 2023" },
-      { title: "Algorithms & Problem Solving - Level 4", issuer: "Programming Advices", date: "JUN 2023" },
-      { title: "Algorithms & Problem Solving - Level 3", issuer: "Programming Advices", date: "MAY 2023" },
-      { title: "Introduction to Programming Using C++ - Level 2", issuer: "Programming Advices", date: "DATE PENDING" },
-      { title: "Algorithms & Problem Solving - Level 2", issuer: "Programming Advices", date: "DATE PENDING" },
-      { title: "Algorithms & Problem Solving - Level 1 Solutions", issuer: "Programming Advices", date: "JUL 2023" },
-      { title: "Introduction to Programming Using C++ - Level 1", issuer: "Programming Advices", date: "JUL 2023" },
-      { title: "Algorithms & Problem Solving - Level 1", issuer: "Programming Advices", date: "JUL 2023" },
-      { title: "Programming Foundations - Level 1", issuer: "Programming Advices", date: "JUL 2023" },
-    ],
+    title: "Product delivery",
+    text: "Capacitor, responsive web interfaces, API integration, Git workflows, Linux fundamentals, and deployment.",
   },
 ];
 
 export default function Home() {
   return (
     <main className="site-shell">
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Mohammad Abdelfattah home">
-          MA<span>/</span>
-        </a>
-        <nav className="site-nav" aria-label="Primary navigation">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#work">Work</a>
-          <a href="#credentials">Credentials</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <a className="availability" href="#contact">
-          Available for opportunities
-        </a>
-      </header>
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <SiteHeader />
 
-      <section className="hero" id="top">
-        <div className="hero-grid">
-          <div>
-            <p className="eyebrow">// BACKEND DEVELOPER &amp; SYSTEMS BUILDER</p>
-            <h1>
-              Mohammad
-              <br />
-              Abdelfattah<span>.</span>
-            </h1>
-            <p className="hero-lede">
-              I build secure software systems that hold up in real workflows —
-              from municipal library operations to cardiac monitoring APIs and
-              cross-platform mobile applications.
-            </p>
-            <div className="hero-actions">
-              <a className="button primary" href="#work">
-                Explore selected work <span aria-hidden="true">→</span>
-              </a>
-              <a className="button" href="#about">
-                How I work
-              </a>
-            </div>
+      <section className="hero" id="main-content">
+        <div className="hero-copy">
+          <p className="eyebrow">Backend-focused software developer</p>
+          <h1>Secure .NET systems for real operations.</h1>
+          <p className="hero-lede">
+            I&apos;m Mohammad Abdelfattah, a Computer Science — Data Science graduate.
+            My experience combines professional product work at Immesense with structured
+            backend training and a one-year municipal software program.
+          </p>
+          <div className="hero-actions">
+            <a className="button button-primary" href="#work">View selected work</a>
+            <a className="button button-secondary" href="#experience">See my experience</a>
           </div>
+        </div>
 
-          <aside className="signal-card" aria-label="Current engineering focus">
-            <div className="signal-top">
-              <span>BUILD SIGNAL</span>
-              <span>● LIVE</span>
+        <aside className="hero-evidence" aria-label="Selected evidence">
+          <div className="evidence-heading">
+            <span>Selected evidence</span>
+            <span>2025—2026</span>
+          </div>
+          <a href="/projects/library-management-system">
+            <strong>01</strong>
+            <span>Municipal library system</span>
+            <small>Backend team contribution</small>
+          </a>
+          <a href="/projects/cardiac-monitor-api">
+            <strong>02</strong>
+            <span>Cardiac Monitor API</span>
+            <small>23+ endpoints · 22 tests</small>
+          </a>
+          <a href="/credentials">
+            <strong>03</strong>
+            <span>Continuous learning record</span>
+            <small>Selected and complete credentials</small>
+          </a>
+        </aside>
+      </section>
+
+      <section className="technology-strip" aria-label="Technical stack">
+        <div className="technology-track">
+          {[false, true].map((duplicate) => (
+            <div className="technology-row" aria-hidden={duplicate || undefined} key={String(duplicate)}>
+              {technologies.map((technology) => (
+                <span className="technology-item" key={`${duplicate}-${technology.label}`}>
+                  <i aria-hidden="true">{technology.mark}</i>
+                  {technology.label}
+                </span>
+              ))}
             </div>
-            <div className="signal-main">
-              <span className="signal-label">Current focus</span>
-              <strong>Reliable systems, end to end.</strong>
-            </div>
-            <div>
-              <div className="signal-row">
-                <span>Core</span>
-                <span>ASP.NET + SQL</span>
-              </div>
-              <div className="signal-row">
-                <span>Delivery</span>
-                <span>API + Web + Mobile</span>
-              </div>
-              <div className="signal-row">
-                <span>Base</span>
-                <span>Tulkarm, Palestine</span>
-              </div>
-            </div>
-          </aside>
+          ))}
         </div>
       </section>
 
-      <div className="stack-ribbon" aria-label="Technical stack">
-        {capabilities.map((item) => (
-          <span key={item}>{item} +</span>
-        ))}
-      </div>
-
-      <section className="proof" id="about">
-        <div className="section-intro">
-          <p className="section-kicker">01 / PROOF OVER PROMISES</p>
+      <section className="about-section" id="about">
+        <div className="section-heading section-heading-light">
+          <p className="section-label">About the work</p>
           <div>
-            <h2>Systems people can actually use.</h2>
-            <p className="section-copy">
-              My strongest work sits where backend engineering, data, and
-              practical operations meet. I care about access rules, failure paths,
-              tests, and the small details that make software dependable after the
-              demo.
+            <h2>Selected facts from recent work.</h2>
+            <p>
+              I work best where backend engineering, structured data, and real operational
+              workflows meet. The numbers below describe specific work—not years, clients,
+              or impact that cannot be verified.
             </p>
           </div>
         </div>
-        <div className="metric-grid">
-          {metrics.map(([value, label]) => (
-            <article className="metric" key={label}>
-              <strong>{value}</strong>
-              <span>{label}</span>
+        <div className="proof-list">
+          {proofPoints.map((point, index) => (
+            <article key={point.label}>
+              <span>0{index + 1}</span>
+              <strong>{point.value}</strong>
+              <div>
+                <h3>{point.label}</h3>
+                <p>{point.detail}</p>
+              </div>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="work-section" id="work">
+        <div className="section-heading section-heading-dark">
+          <p className="section-label">Selected work</p>
+          <div>
+            <h2>Projects explained through role and evidence.</h2>
+            <p>
+              Each case study separates team contribution, internship work, and personal
+              learning projects so the scope is clear before the technology list.
+            </p>
+          </div>
+        </div>
+
+        <div className="featured-projects">
+          {projects.slice(0, 2).map((project) => (
+            <article className="featured-project" key={project.slug}>
+              <ProjectVisual project={project} />
+              <div className="featured-project-copy">
+                <div className="project-meta">
+                  <span>{project.category}</span>
+                  <span>{project.period}</span>
+                </div>
+                <h3>{project.title}</h3>
+                <p>{project.summary}</p>
+                <div className="tag-list">
+                  {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                </div>
+                <a className="text-link" href={`/projects/${project.slug}`}>Read the case study <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="secondary-projects">
+          {projects.slice(2).map((project) => (
+            <a className="project-card" href={`/projects/${project.slug}`} key={project.slug}>
+              <div className="project-card-top">
+                <span>{project.number}</span>
+                <span>{project.category}</span>
+              </div>
+              <ProjectVisual project={project} compact />
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.summary}</p>
+              </div>
+              <span className="project-card-link">View case study ↗</span>
+            </a>
           ))}
         </div>
       </section>
 
       <section className="experience-section" id="experience">
-        <div className="section-heading dark-heading">
-          <p className="section-kicker">02 / EXPERIENCE</p>
-          <h2>Built in real teams.<br />Shaped by real use.</h2>
-        </div>
-        <div className="timeline">
-          {experience.map((item, index) => (
-            <article className="timeline-row" key={`${item.company}-${item.role}`}>
-              <span className="timeline-index">0{index + 1}</span>
-              <span className="timeline-period">{item.period}</span>
-              <div className="timeline-role">
-                <h3>{item.role}</h3>
-                <p>{item.company} · {item.place}</p>
-              </div>
-              <p className="timeline-detail">{item.detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="featured" id="work">
-        <div className="featured-copy">
-          <p className="project-index">FEATURED SYSTEM / 2026</p>
-          <h2>Cardiac Monitor API</h2>
-          <p>
-            A secure ASP.NET Core API for patient profiles, vital signs,
-            medications, and appointments — designed with real access boundaries,
-            token rotation, validation, logging, and automated tests.
-          </p>
-          <div className="tag-list">
-            {["ASP.NET Core 8", "SQL Server", "JWT", "xUnit", "Swagger"].map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
-          <a
-            className="text-link"
-            href="https://github.com/mohammadimad/Mohammad-Abdelfattah-BinX-Backend-Internship/tree/main/CardiacMonitor"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View repository <span aria-hidden="true">→</span>
-          </a>
-        </div>
-        <div className="api-panel" aria-label="Cardiac Monitor API overview">
-          <div className="api-header">
-            <div className="window-dots"><i /><i /><i /></div>
-            <code>cardiac-monitor / api</code>
-          </div>
-          <div className="api-code">
-            <div><span className="method get">GET</span><code>/api/patients/{"{id}"}/vitals</code></div>
-            <div><span className="method post">POST</span><code>/api/auth/refresh</code></div>
-            <div><span className="method put">PUT</span><code>/api/appointments/{"{id}"}</code></div>
-          </div>
-          <div className="json-block">
-            <span>HTTP/1.1 200 OK</span>
-            <pre>{`{
-  "tests": 22,
-  "failures": 0,
-  "status": "reliable"
-}`}</pre>
-          </div>
-          <div className="api-status">
-            <span>QUALITY GATE</span>
-            <strong>22 / 22 PASSING</strong>
-          </div>
-        </div>
-      </section>
-
-      <section className="projects-section" aria-labelledby="selected-work-title">
-        <div className="section-heading light-heading">
-          <p className="section-kicker">03 / SELECTED WORK</p>
-          <h2 id="selected-work-title">Architecture with a reason.</h2>
-        </div>
-        <div className="project-grid">
-          {projects.map((project) => {
-            const isExternal = project.href.startsWith("http");
-            return (
-              <a
-                className="project-card"
-                href={project.href}
-                target={isExternal ? "_blank" : undefined}
-                rel={isExternal ? "noreferrer" : undefined}
-                key={project.title}
-              >
-                <div className="project-card-top">
-                  <span>{project.index}</span>
-                  <span aria-hidden="true">{isExternal ? "↗" : "TEAM PROJECT"}</span>
-                </div>
-                <div>
-                  <h3>{project.title}</h3>
-                  <p>{project.summary}</p>
-                </div>
-                <div className="project-tags">
-                  {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="skills-section" aria-labelledby="capabilities-title">
-        <div className="section-heading dark-heading">
-          <p className="section-kicker">04 / CAPABILITIES</p>
-          <h2 id="capabilities-title">One system.<br />Every critical layer.</h2>
-        </div>
-        <div className="skill-grid">
-          {skillGroups.map((group) => (
-            <article className="skill-card" key={group.title}>
-              <span>{group.number}</span>
-              <h3>{group.title}</h3>
-              <p>{group.skills}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="credentials-section" id="credentials" aria-labelledby="credentials-title">
-        <div className="section-heading light-heading">
-          <p className="section-kicker">05 / CREDENTIALS</p>
+        <div className="section-heading section-heading-light">
+          <p className="section-label">Experience</p>
           <div>
-            <h2 id="credentials-title">A long-form learning record.</h2>
-            <p className="credentials-intro">
-              Selected credentials appear in targeted CVs. The complete catalog
-              stays here to show the depth and continuity behind the work.
+            <h2>Professional work, training, and leadership—clearly separated.</h2>
+            <p>
+              Employment, internships, practical programs, and student leadership are
+              intentionally separated to represent the experience accurately.
             </p>
           </div>
         </div>
-        <div className="credential-groups">
-          {credentialGroups.map((group) => (
-            <section className="credential-group" key={group.title}>
-              <h3>{group.title}</h3>
-              <div className="credential-list">
-                {group.items.map((credential) => (
-                  <article className="credential-row" key={`${credential.title}-${credential.date}`}>
-                    <div>
-                      {credential.href ? (
-                        <a className="credential-link" href={credential.href} target="_blank" rel="noreferrer">
-                          {credential.title} <span aria-hidden="true">↗</span>
-                        </a>
-                      ) : (
-                        <strong>{credential.title}</strong>
-                      )}
-                      {credential.id ? <small>{credential.id}</small> : null}
+
+        <div className="experience-groups">
+          {experienceGroups.map((group) => (
+            <section className="experience-group" key={group.title}>
+              <div className="experience-group-heading">
+                <h3>{group.title}</h3>
+                <p>{group.description}</p>
+              </div>
+              <div className="experience-list">
+                {group.items.map((item) => (
+                  <article className="experience-item" key={`${item.organization}-${item.role}`}>
+                    <div className="organization-mark" aria-hidden="true">{item.mark}</div>
+                    <div className="experience-title">
+                      <time>{item.period}</time>
+                      <h4>{item.role}</h4>
+                      <p>{item.organization} · {item.place}</p>
                     </div>
-                    <span>{credential.issuer}</span>
-                    <time>{credential.date}</time>
+                    <div className="experience-detail">
+                      <p>{item.detail}</p>
+                      {item.link ? (
+                        <a href={item.link.href} target="_blank" rel="noreferrer">
+                          {item.link.label} <span aria-hidden="true">↗</span>
+                        </a>
+                      ) : null}
+                    </div>
                   </article>
                 ))}
               </div>
@@ -459,50 +209,89 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="education-section">
-        <p className="section-kicker">06 / FOUNDATION</p>
-        <div className="education-grid">
+      <section className="capabilities-section" id="capabilities">
+        <div className="section-heading section-heading-dark">
+          <p className="section-label">Capabilities</p>
           <div>
-            <span className="micro-label">EDUCATION</span>
-            <h2>B.Sc. Computer Science<br />— Data Science</h2>
-          </div>
-          <div className="education-meta">
-            <p>Palestine Technical University — Kadoorie</p>
-            <p>Graduated June 2026</p>
-            <p>GPA 80.5</p>
-          </div>
-          <div className="language-block">
-            <span className="micro-label">LANGUAGES</span>
-            <p>Arabic — Native</p>
-            <p>English — Intermediate</p>
+            <h2>Backend engineering, supported by data and delivery skills.</h2>
+            <p>
+              The primary position is backend development. Data, quality, mobile, and
+              delivery skills support that focus rather than compete with it.
+            </p>
           </div>
         </div>
+        <div className="capability-list">
+          {capabilities.map((capability) => (
+            <article key={capability.title}>
+              <span>{capability.number}</span>
+              <h3>{capability.title}</h3>
+              <p>{capability.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="credentials-preview" id="credentials">
+        <div className="section-heading section-heading-light">
+          <p className="section-label">Selected credentials</p>
+          <div>
+            <h2>Six selected credentials.</h2>
+            <p>
+              Six credentials are highlighted here. The complete learning record remains
+              available on a separate page.
+            </p>
+          </div>
+        </div>
+
+        <div className="credential-card-grid">
+          {selectedCredentials.map((credential) => (
+            <a className="credential-card" href={credential.href} target="_blank" rel="noreferrer" key={credential.title}>
+              <div className="credential-image">
+                <img src={credential.thumbnail} alt={`Certificate preview: ${credential.title}`} loading="lazy" />
+              </div>
+              <div>
+                <span>{credential.issuer}</span>
+                <h3>{credential.title}</h3>
+                <small>{credential.date}</small>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <a className="catalog-link" href="/credentials">View all credentials <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section className="foundation-section">
+        <div>
+          <p className="section-label">Education</p>
+          <h2>B.Sc. Computer Science<br />— Data Science</h2>
+        </div>
+        <dl>
+          <div><dt>University</dt><dd>Palestine Technical University — Kadoorie</dd></div>
+          <div><dt>Graduated</dt><dd>June 2026</dd></div>
+          <div><dt>GPA</dt><dd>80.5</dd></div>
+        </dl>
+        <dl>
+          <div><dt>Arabic</dt><dd>Native</dd></div>
+          <div><dt>English</dt><dd>Intermediate</dd></div>
+        </dl>
       </section>
 
       <section className="contact-section" id="contact">
-        <p className="eyebrow">// READY TO BUILD SOMETHING RELIABLE?</p>
-        <h2>Let&apos;s turn a real problem<br />into a working system.</h2>
+        <p className="section-label">Contact</p>
+        <h2>Let&apos;s discuss a backend role or a real software problem.</h2>
         <div className="contact-actions">
-          <a className="button contact-primary" href="mailto:hammodaimad@gmail.com">
-            Start a conversation <span aria-hidden="true">→</span>
-          </a>
-          <a className="button contact-button" href="https://github.com/mohammadimad" target="_blank" rel="noreferrer">
-            GitHub ↗
-          </a>
-          <a className="button contact-button" href="https://www.linkedin.com/in/mohammad-abdelfattah-84a080176" target="_blank" rel="noreferrer">
-            LinkedIn ↗
-          </a>
+          <a className="button contact-primary" href="mailto:hammodaimad@gmail.com">Email Mohammad</a>
+          <a className="button contact-secondary" href="https://github.com/mohammadimad" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a className="button contact-secondary" href="https://www.linkedin.com/in/mohammad-abdelfattah-84a080176" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         </div>
         <div className="contact-meta">
           <a href="mailto:hammodaimad@gmail.com">hammodaimad@gmail.com</a>
-          <span>Tulkarm, Palestine · Available for opportunities</span>
+          <span>Tulkarm, Palestine</span>
         </div>
       </section>
 
-      <footer>
-        <span>© 2026 Mohammad Abdelfattah</span>
-        <span>Backend · Data · Systems</span>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
