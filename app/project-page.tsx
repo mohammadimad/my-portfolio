@@ -151,7 +151,7 @@ export default function ProjectPage({ project }: { project: Project }) {
               ) : null}
             </div>
           </div>
-          <ProjectVisual project={project} />
+          <ProjectVisual project={project} detail />
         </div>
       </section>
 

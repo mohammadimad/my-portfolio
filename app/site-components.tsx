@@ -54,15 +54,28 @@ export function SiteFooter() {
   );
 }
 
-export function ProjectVisual({ project, compact = false }: { project: Project; compact?: boolean }) {
+export function ProjectVisual({
+  project,
+  compact = false,
+  detail = false,
+}: {
+  project: Project;
+  compact?: boolean;
+  detail?: boolean;
+}) {
+  const isLibraryJourney = project.visual === "library" && detail;
+
   return (
-    <div className={`project-visual project-visual-${project.visual}${compact ? " is-compact" : ""}`} aria-label={`${project.title} system map`}>
+    <div
+      className={`project-visual project-visual-${project.visual}${compact ? " is-compact" : ""}${isLibraryJourney ? " is-journey" : ""}`}
+      aria-label={isLibraryJourney ? `${project.title} transformation journey` : `${project.title} system map`}
+    >
       <div className="visual-label">
         <span>{project.number}</span>
         <span>{project.category}</span>
       </div>
 
-      {project.visual === "library" ? (
+      {project.visual === "library" && !detail ? (
         <div className="library-map">
           <div className="map-column">
             <span>Books</span>
@@ -75,6 +88,34 @@ export function ProjectVisual({ project, compact = false }: { project: Project; 
             <span>Due dates & fines</span>
             <span>Activity log</span>
           </div>
+        </div>
+      ) : null}
+
+      {isLibraryJourney ? (
+        <div className="library-journey">
+          <article>
+            <span>01</span>
+            <div>
+              <strong>Legacy operations</strong>
+              <p>Desktop-bound records, limited maintainability, and fragmented workflows.</p>
+            </div>
+          </article>
+          <i aria-hidden="true">↓</i>
+          <article>
+            <span>02</span>
+            <div>
+              <strong>Analysis & re-engineering</strong>
+              <p>Requirements, relational data, backend logic, permissions, and migration.</p>
+            </div>
+          </article>
+          <i aria-hidden="true">↓</i>
+          <article>
+            <span>03</span>
+            <div>
+              <strong>Internal municipal use</strong>
+              <p>A modern web-based system supporting Tulkarm Municipality staff.</p>
+            </div>
+          </article>
         </div>
       ) : null}
 
@@ -104,7 +145,11 @@ export function ProjectVisual({ project, compact = false }: { project: Project; 
         </div>
       ) : null}
 
-      <p className="visual-note">Sanitized visual based on documented project scope.</p>
+      <p className="visual-note">
+        {isLibraryJourney
+          ? "Transformation summary based on the documented team project."
+          : "Sanitized visual based on documented project scope."}
+      </p>
     </div>
   );
 }
