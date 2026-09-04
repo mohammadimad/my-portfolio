@@ -13,7 +13,7 @@ const navItems = [
   ["Work", "/#work"],
   ["Experience", "/#experience"],
   ["Capabilities", "/#capabilities"],
-  ["Credentials", "/credentials"],
+  ["Credentials", "/#credentials"],
 ] as const;
 
 export function SiteHeader() {

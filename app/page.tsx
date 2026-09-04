@@ -258,7 +258,6 @@ export default function Home() {
           ))}
         </div>
 
-        <a className="catalog-link" href="/credentials">View all credentials <span aria-hidden="true">↗</span></a>
       </section>
 
       <section className="foundation-section">
