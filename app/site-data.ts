@@ -14,6 +14,7 @@ export type CredentialGroup = {
 
 export type ExperienceItem = {
   mark: string;
+  logo?: string;
   period: string;
   role: string;
   organization: string;
@@ -85,6 +86,7 @@ export const experienceGroups: ExperienceGroup[] = [
     items: [
       {
         mark: "IM",
+        logo: "/organizations/immesense-logo.jfif",
         period: "JUN 2026 — PRESENT",
         role: "Mobile & Full-Stack Developer",
         organization: "Immesense",
@@ -100,6 +102,7 @@ export const experienceGroups: ExperienceGroup[] = [
     items: [
       {
         mark: "BX",
+        logo: "/organizations/binx-tech-logo.jfif",
         period: "JUL 2026 — PRESENT",
         role: "Backend Developer Intern",
         organization: "BinX Tech",
@@ -113,6 +116,7 @@ export const experienceGroups: ExperienceGroup[] = [
       },
       {
         mark: "TM",
+        logo: "/organizations/tulkarm-municipality-logo.png",
         period: "AUG 2025 — AUG 2026",
         role: "Backend Team Member — Library Management System",
         organization: "Tulkarm Municipality × PTUK",
@@ -132,6 +136,7 @@ export const experienceGroups: ExperienceGroup[] = [
     items: [
       {
         mark: "BC",
+        logo: "/organizations/binx-tech-logo.jfif",
         period: "JUN 2026 — PRESENT",
         role: "Technical Team Co-Leader",
         organization: "Bin X Student Club",

@@ -187,7 +187,9 @@ export default function Home() {
               <div className="experience-list">
                 {group.items.map((item) => (
                   <article className="experience-item" key={`${item.organization}-${item.role}`}>
-                    <div className="organization-mark" aria-hidden="true">{item.mark}</div>
+                    <div className={`organization-mark${item.logo ? " has-logo" : ""}`} aria-hidden="true">
+                      {item.logo ? <img src={item.logo} alt="" loading="lazy" /> : item.mark}
+                    </div>
                     <div className="experience-title">
                       <time>{item.period}</time>
                       <h4>{item.role}</h4>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">MA monogram</title>
+  <desc id="desc">Mohammad Abdelfattah MA monogram in the portfolio visual identity.</desc>
+  <rect width="1024" height="1024" fill="#11110f"/>
+  <g
+    fill="none"
+    stroke="#d97745"
+    stroke-width="2.5"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+    transform="translate(128 256) scale(16)"
+  >
+    <path d="M4 26V6l8 12L20 6v20"/>
+    <path d="M26 26 34 6l8 20M29.5 18h9"/>
+  </g>
+</svg>
